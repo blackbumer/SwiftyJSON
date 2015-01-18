@@ -42,59 +42,59 @@ class PerformanceTests: XCTestCase {
         super.tearDown()
     }
     
-    func testInitPerformance() {
-        self.measureBlock() {
-            for _ in 1...100 {
-                let json = JSON(data:self.testData)
-                XCTAssertTrue(json != JSON.nullJSON)
-            }
-        }
-    }
-    
-    func testObjectMethodPerformance() {
-        var json = JSON(data:self.testData)
-        self.measureBlock() {
-            for _ in 1...100 {
-                let object:AnyObject? = json.object
-                XCTAssertTrue(object != nil)
-            }
-        }
-    }
-
-    func testArrayMethodPerformance() {
-        let json = JSON(data:self.testData)
-        self.measureBlock() {
-            for _ in 1...100 {
-                autoreleasepool{
-                    let array = json.array
-                    XCTAssertTrue(array?.count > 0)
-                }
-            }
-        }
-    }
-    
-    func testDictionaryMethodPerformance() {
-        let json = JSON(data:testData)[0]
-        self.measureBlock() {
-            for _ in 1...100 {
-                autoreleasepool{
-                    var dictionary = json.dictionary
-                    XCTAssertTrue(dictionary?.count > 0)
-                }
-            }
-        }
-    }
-    
-    func testRawStringMethodPerformance() {
-        let json = JSON(data:testData)
-        self.measureBlock() {
-            for _ in 1...100 {
-                autoreleasepool{
-                    var string = json.rawString()
-                    XCTAssertTrue(string != nil)
-                }
-            }
-        }
-    }
+//    func testInitPerformance() {
+//        self.measureBlock() {
+//            for _ in 1...100 {
+//                let json = JSON(data:self.testData)
+//                XCTAssertTrue(json != JSON.nullJSON)
+//            }
+//        }
+//    }
+//    
+//    func testObjectMethodPerformance() {
+//        var json = JSON(data:self.testData)
+//        self.measureBlock() {
+//            for _ in 1...100 {
+//                let object:AnyObject? = json.object
+//                XCTAssertTrue(object != nil)
+//            }
+//        }
+//    }
+//
+//    func testArrayMethodPerformance() {
+//        let json = JSON(data:self.testData)
+//        self.measureBlock() {
+//            for _ in 1...100 {
+//                autoreleasepool{
+//                    let array = json.array
+//                    XCTAssertTrue(array?.count > 0)
+//                }
+//            }
+//        }
+//    }
+//    
+//    func testDictionaryMethodPerformance() {
+//        let json = JSON(data:testData)[0]
+//        self.measureBlock() {
+//            for _ in 1...100 {
+//                autoreleasepool{
+//                    var dictionary = json.dictionary
+//                    XCTAssertTrue(dictionary?.count > 0)
+//                }
+//            }
+//        }
+//    }
+//    
+//    func testRawStringMethodPerformance() {
+//        let json = JSON(data:testData)
+//        self.measureBlock() {
+//            for _ in 1...100 {
+//                autoreleasepool{
+//                    var string = json.rawString()
+//                    XCTAssertTrue(string != nil)
+//                }
+//            }
+//        }
+//    }
 
 }
